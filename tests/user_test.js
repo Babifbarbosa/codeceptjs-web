@@ -11,7 +11,6 @@ Feature('user')
 //Scenario('TC01 - Create a new user', async ({ I }) => {
 //     I.amOnPage('https://agapito-server.herokuapp.com/')
 //     I.click('#users')
-//     I.
 //     I.click('#btn-new')
 //     I.fillField('#user_login', 'teste')
 //     I.fillField('#user_full_name', 'full name teste')
@@ -27,6 +26,7 @@ Feature('user')
 Scenario('TC02 - Create a new user with page', async ({ I }) => {
     homePage.openSite()
     homePage.clickUser()
+    I.waitForElement('#btn-new');
     userGridPage.clickNewUser()
     userEditPage.fillLogin('teste')
     userEditPage.fillFullName('full name teste')
@@ -34,8 +34,7 @@ Scenario('TC02 - Create a new user with page', async ({ I }) => {
     userEditPage.fillAge('30')
     userEditPage.clickSave()
     I.see('Usuário foi criado com sucesso.')
-    I.pause()
+    await pause()
     I.saveScreenshot("TestingOK.png") 
-
 
 })
